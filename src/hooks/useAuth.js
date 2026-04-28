@@ -23,18 +23,13 @@ export function useAuth() {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: {
-        data: { full_name: fullName }
-      }
+      options: { data: { full_name: fullName } }
     });
     return { data, error };
   };
 
   const signIn = async (email, password) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     return { data, error };
   };
 
